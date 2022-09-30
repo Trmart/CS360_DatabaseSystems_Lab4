@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+      
+      #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      #myImg:hover {opacity: 0.7;}
+      
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+      }
+      
+      /* Modal Content (image) */
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+      
+      /* Caption of Modal Image */
+      #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+      }
+      
+      /* Add Animation */
+      .modal-content, #caption {  
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+      }
+      
+      @-webkit-keyframes zoom {
+        from {-webkit-transform:scale(0)} 
+        to {-webkit-transform:scale(1)}
+      }
+      
+      @keyframes zoom {
+        from {transform:scale(0)} 
+        to {transform:scale(1)}
+      }
+      
+      /* The Close Button */
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      /* 100% Image Width on Smaller Screens */
+      @media only screen and (max-width: 700px){
+        .modal-content {
+          width: 100%;
+        }
+      }
+      </style>
+
+    <title>Photos</title>
+<!-- Navbar content -->
+<nav class="navbar lg navbar-expand navbar-fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="photos.html">Photos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="bio.html">Bio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <li class="nav-item">
+        <a class="btn btn-primary" style="background-color: #0c48ec;" href="https://www.facebook.com/" role="button" data-toggle="tooltip" data-placement="bottom" title="Go To Facebook">
+        <i class="fa fa-facebook-f"></i> Facebook</a>
+        ></li>
+        <li class="nav-item">
+          <a class="btn btn-primary" style="background-color: #ec0cd9;" href="https://www.google.com/aclk?sa=l&ai=DChcSEwje-4CJsb36AhUyG60GHYeTBzcYABAAGgJwdg&sig=AOD64_1VAaBS24h4agG3csSqRtoc2GyaZQ&q&adurl&ved=2ahUKEwiwvvqIsb36AhVWAzQIHSUIBvgQ0Qx6BAgEEAE" role="button" data-toggle="tooltip" data-placement="bottom" title="Go To Instagram"
+            ><i class="fa fa-instagram"></i> Instagram</a>
+          ></li>
+          <li class="nav-item">
+            <a class="btn btn-primary" style="background-color: #55acee;" href="https://twitter.com/" role="button" data-toggle="tooltip" data-placement="bottom" title="Go To Twitter"
+              ><i class="fa fa-twitter me-2"></i> Twitter</a
+            ></li>
+      </ul>
+    </div>
+</nav>
+  </head>
+  <body>
+    
+    <div class="lightbox bg-dark">
+        <div class="row">
+          <div class="col-lg-6">
+            <img
+              id = "myImg"
+              src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Slides/1.webp"
+              data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Slides/1.webp"
+              alt="Table Full of Spices"
+              class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"
+            />
+            <img
+            id = "myImg"
+              src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Square/1.webp"
+              data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Square/1.webp"
+              alt="Coconut with Strawberries"
+              class="w-100 shadow-1-strong rounded"
+            />
+          </div>
+          <div class="col-lg-6">
+            <img
+              id = "myImg"
+              src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Vertical/1.webp"
+              data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Vertical/1.webp"
+              alt="Dark Roast Iced Coffee"
+              class="w-100 shadow-1-strong rounded"
+            />
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img">
+              <div id="caption"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+      
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var img = document.getElementById("myImg");
+      var modalImg = document.getElementById("img");
+      var captionText = document.getElementById("caption");
+      img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() { 
+        modal.style.display = "none";
+      }
+
+    </script>
+  </body>
+  </html>
